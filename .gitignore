@@ -175,8 +175,8 @@ Session.vim
 tags
 
 ## IntelliJ IDE
-#.idea
-#*.idea
-#.idea/workspace.xml
+.idea
+*.idea
+.idea/workspace.xml
 
 # End of https://www.gitignore.io/api/vim,node,code,macos,emacs
