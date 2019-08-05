@@ -14,7 +14,7 @@ Assume the API might be slow.
 
 ## API
 
-The root URL of the API is available here: https://clutter-front-end-interview.herokuapp.com. So, to get information about a movie with ID=123, you can go to https://clutter-front-end-interview.herokuapp.com/movies/123.json
+The root URL of the API is available here: https://clutter-front-end-interview.herokuapp.com. So, to get information about a movie with ID=497, you can go to https://clutter-front-end-interview.herokuapp.com/movies/497.json
 
 There is a movie resource, and castmember resource which belongs to movie, and movie has many cast members.
 
