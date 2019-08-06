@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import MainContent from './components/MainContent'
 import Sidebar from './components/Sidebar'
+import axios from 'axios'
 
 class App extends Component {
   state = {
-    loading: false,
+    castIsLoading: false,
     movieDetails: {
       "id": 736,
       "title": "One Flew Over the Cuckoo's Nest",
@@ -248,9 +249,22 @@ class App extends Component {
     }
   }
 
-  onMovieClicked = (movie) => {
+  onMovieClicked = async (movie) => {
     this.setState({
-      movieDetails: movie
+      movieDetails: movie,
+      castIsLoading: true
+    })
+
+    const castURL = `https://clutter-front-end-interview.herokuapp.com/movies/${movie.id}/cast_members.json`
+
+    const res = await axios.get(castURL)
+
+    this.setState({
+      castIsLoading: false,
+      movieDetails: {
+        ...movie,
+        cast: res.data,
+      }
     })
   }
 

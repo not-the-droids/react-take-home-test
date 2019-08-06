@@ -41,7 +41,7 @@ export class Sidebar extends Component {
             searchCandidates: []
           })
         }
-      }, 500)
+      }, 300)
     } else {
       this.setState({
         searchCandidates: []

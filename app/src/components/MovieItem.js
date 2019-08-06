@@ -5,7 +5,7 @@ export class MovieItem extends Component {
   render() {
     const { movie, onMovieClicked } = this.props
     return (
-      <div class="MovieItem-movieItemContainer" style={movieItemContainerStyle} onClick={() => onMovieClicked(movie)}>
+      <div className="MovieItem-movieItemContainer" style={movieItemContainerStyle} onClick={() => onMovieClicked(movie)}>
         <img src={movie.poster_path} alt="" style={posterStyle} />
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <p style={movieTitleStyle}>{movie.title}</p>
