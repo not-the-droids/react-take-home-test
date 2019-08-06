@@ -1,0 +1,31 @@
+.mainContentContainer {
+  padding: 2.5rem;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-rows: auto 100px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "poster overview overview" "cast cast cast";
+}
+
+.castList {
+  padding: 0;
+  margin: 0;
+}
+
+.castList>li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px 0 0;
+}
+
+.castList>li p {
+  font-size: 10pt;
+  margin: 0;
+  margin-bottom: 0.3em;
+}
+
+.castList>li span {
+  font-size: 9pt;
+  line-height: 1pt;
+  margin: 0;
+}
