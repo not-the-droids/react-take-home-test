@@ -57,21 +57,25 @@ export class MainContent extends Component {
           </div>
           <h3>Featured Crew</h3>
           <ul className='castList'>
-            {this.chooseRandom(movieDetails.cast, 2).map(castMember => (
-              <li key={castMember.tmdb_id}>
-                <div>
-                  <p>{castMember.name}</p>
-                  <span>{castMember.character}</span>
-                </div>
-              </li>
-            ))}
+            <li>
+              <div>
+                <p>Bob Kane</p>
+                <span>Character</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p>Sam Hamm</p>
+                <span>Screenplay</span>
+              </div>
+            </li>
           </ul>
         </div>
         <div style={topBilledListContainerStyle}>
           <h3>Top Billed Cast</h3>
           <ul style={topBilledListStyle}>
             {topBilledCast.map(castMember => (
-              <li style={topBilledListItemStyle}>
+              <li key={castMember.tmdb_id} style={topBilledListItemStyle}>
                 <CastMember castMemberData={castMember}></CastMember>
               </li>
             ))}

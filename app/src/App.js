@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import Center from './components/Center'
 import MainContent from './components/MainContent'
+import Sidebar from './components/Sidebar'
 
 class App extends Component {
   state = {
+    loading: false,
     movieDetails: {
       "id": 736,
       "title": "One Flew Over the Cuckoo's Nest",
@@ -247,6 +248,12 @@ class App extends Component {
     }
   }
 
+  onMovieClicked = (movie) => {
+    this.setState({
+      movieDetails: movie
+    })
+  }
+
   render() {
     return (
       <div className="App" style={appContainerStyle} >
@@ -254,9 +261,7 @@ class App extends Component {
           <MainContent movieDetails={this.state.movieDetails} />
         </main>
         <aside style={sidebarContainerStyle}>
-          <Center>
-            <p>Sidebar</p>
-          </Center>
+          <Sidebar onMovieClicked={this.onMovieClicked} />
         </aside>
       </div>
     );
