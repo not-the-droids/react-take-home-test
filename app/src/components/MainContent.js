@@ -54,7 +54,7 @@ export class MainContent extends Component {
     const topBilledCast = cast.slice(0, 3)
 
     return (
-      <div className="mainContentContainer">
+      <div className="MainContent-mainContentContainer">
         <img src={movieDetails.poster_path} alt="Movie Poster" style={posterStyle} />
         <div style={overviewStyle.container}>
           <h2 style={subHeadingStyle}>{movieDetails.title}</h2>
