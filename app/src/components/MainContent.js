@@ -20,7 +20,7 @@ export class MainContent extends Component {
         <div style={{ width: '100%', height: '100%' }}>
           <Center>
             <ImpulseSpinner
-              frontColor='#ffffff'
+              frontColor='#aaa'
               backColor='rgba(0,0,0,0)'
               loading={true}
             />
@@ -92,6 +92,8 @@ const posterStyle = {
   gridArea: 'poster',
   width: '100%',
   borderRadius: '2%',
+  // border: '1px solid #ccc'
+  boxShadow: '0 0 5px #ccc'
 }
 
 const titleStyle = {
@@ -113,6 +115,8 @@ const topBilledListContainerStyle = {
 
 const topBilledListStyle = {
   padding: 0,
+  display: 'flex',
+  alignItems: 'start',
 }
 
 const topBilledListItemStyle = {

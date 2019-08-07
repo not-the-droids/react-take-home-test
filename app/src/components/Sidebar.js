@@ -29,7 +29,6 @@ export class Sidebar extends Component {
 
     if (searchTerm.length > 0) {
       this.searchTimeout = setTimeout(async () => {
-        console.log('Searching for ' + searchTerm);
         const res = await axios.get(searchURL)
         if (res.data && res.data.length > 0) {
           console.log(res.data)

@@ -19,15 +19,13 @@ class App extends Component {
 
     const res = await axios.get(castURL)
 
-    setTimeout(() => {
-      this.setState({
-        castIsLoading: false,
-        movieDetails: {
-          ...movie,
-          cast: res.data,
-        }
-      })
-    }, 3000)
+    this.setState({
+      castIsLoading: false,
+      movieDetails: {
+        ...movie,
+        cast: res.data,
+      }
+    })
   }
 
   render() {
@@ -60,13 +58,14 @@ const appContainerStyle = {
 }
 
 const mainContainerStyle = {
-  color: 'white',
+  color: '#555',
+  backgroundColor: 'white',
   borderTopLeftRadius: constants.PAGE_BORDER_RADIUS + 'px',
   borderBottomLeftRadius: constants.PAGE_BORDER_RADIUS + 'px',
 }
 
 const sidebarContainerStyle = {
-  backgroundColor: 'white',
+  backgroundColor: '#efefef',
   height: '90vh',
   minHeight: '700px',
   borderTopRightRadius: constants.PAGE_BORDER_RADIUS + 'px',
