@@ -30,8 +30,8 @@ export class CastMember extends Component {
 
 /** @type{React.CSSProperties} */
 const castPortraitStyle = {
-  width: '100px',
-  height: '100px',
+  width: '80px',
+  height: '80px',
   display: 'flex',
   flexDirection: 'column',
   backgroundColor: 'white',
@@ -40,7 +40,7 @@ const castPortraitStyle = {
   color: '#555',
   textAlign: 'center',
   fontSize: '10pt',
-  border: '1px solid white',
+  // border: '1px solid darkgrey',
   boxShadow: '2px 2px 5px black'
 }
 
