@@ -18,6 +18,7 @@ export class Sidebar extends Component {
   }
 
   onSearchChange = (e) => {
+    console.log('onSearchChange')
     if (this.searchTimeout !== null) {
       clearTimeout(this.searchTimeout);
     }
@@ -29,7 +30,7 @@ export class Sidebar extends Component {
       searchQuery: searchTerm
     })
 
-    if (searchTerm.length > 0) {
+    if (searchTerm.length && searchTerm.length > 0) {
       this.searchTimeout = setTimeout(async () => {
         this.setState({
           loading: true,
@@ -50,8 +51,10 @@ export class Sidebar extends Component {
         }
       }, 300)
     } else {
+      console.log('Empty search')
       this.setState({
-        searchCandidates: []
+        searchCandidates: [],
+        loading: false,
       })
     }
   }
@@ -83,14 +86,16 @@ export class Sidebar extends Component {
     if (this.state.searchQuery.length > 0) {
       return (
         <div style={{ height: '100%' }}>
-          <p>No Movies Found</p>
+          <Center>
+            <p style={{ color: '#888' }}>No Movies Found</p>
+          </Center>
         </div >
       )
     }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.searchQuery !== this.state.searchQuery) {
+    if (nextState.searchQuery !== this.state.searchQuery && nextState.searchQuery.length > 0) {
       return false
     }
 
