@@ -1,14 +1,25 @@
 import React, { Component } from 'react'
+import CastImagePlaceholder from './CastImagePlaceholder'
 import Center from './Center'
 
 export class CastMember extends Component {
+  renderCastMemberPortrait = () => {
+    const { profile_path } = this.props.castMemberData
+
+    if (profile_path === null || profile_path === undefined) {
+      return <CastImagePlaceholder />
+    }
+
+    return <img src={`https://image.tmdb.org/t/p/original${profile_path}`} alt="" style={portraitStyle} />
+  }
+
   render() {
     const { castMemberData } = this.props
     return (
       <div style={{ textAlign: 'center', width: '120px' }}>
         <Center>
           <div style={castPortraitStyle}>
-            <img src={`https://image.tmdb.org/t/p/original${castMemberData.profile_path}`} alt="" style={portraitStyle} />
+            {this.renderCastMemberPortrait()}
           </div>
         </Center>
         <p>{castMemberData.name}</p>
