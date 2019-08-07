@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CastMember from './CastMember'
 import Center from './Center'
-import { ImpulseSpinner } from 'react-spinners-kit'
+import LoadingIndicator from './LoadingIndicator'
+import ClapperboardIcon from './ClapperboardIcon'
 import './MainContent.css'
 
 export class MainContent extends Component {
   renderEmpty = () => (
     <div className="fullHeight">
       <Center>
-        <p>Search for a movie!</p>
+        <ClapperboardIcon />
       </Center>
     </div>
   )
@@ -19,11 +20,7 @@ export class MainContent extends Component {
       return (
         <div style={{ width: '100%', height: '100%' }}>
           <Center>
-            <ImpulseSpinner
-              frontColor='#aaa'
-              backColor='rgba(0,0,0,0)'
-              loading={true}
-            />
+            <LoadingIndicator />
           </Center>
         </div>
       )

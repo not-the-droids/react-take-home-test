@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import MovieItem from './MovieItem'
 import Center from './Center'
+import LoadingIndicator from './LoadingIndicator'
 import axios from 'axios'
 
 
@@ -12,6 +13,7 @@ export class Sidebar extends Component {
 
   state = {
     searchQuery: '',
+    loading: false,
     searchCandidates: []
   }
 
@@ -29,15 +31,21 @@ export class Sidebar extends Component {
 
     if (searchTerm.length > 0) {
       this.searchTimeout = setTimeout(async () => {
+        this.setState({
+          loading: true,
+        })
+
         const res = await axios.get(searchURL)
+
         if (res.data && res.data.length > 0) {
-          console.log(res.data)
           this.setState({
-            searchCandidates: res.data
+            searchCandidates: res.data,
+            loading: false,
           })
         } else {
           this.setState({
-            searchCandidates: []
+            searchCandidates: [],
+            loading: false,
           })
         }
       }, 300)
@@ -49,6 +57,16 @@ export class Sidebar extends Component {
   }
 
   renderMovieList(searchCandidates, onMovieClicked) {
+    if (this.state.loading) {
+      return (
+        <div style={{ height: '100%' }}>
+          <Center>
+            <LoadingIndicator />
+          </Center>
+        </div>
+      )
+    }
+
     if (searchCandidates.length && searchCandidates.length > 0) {
       return (
         <ul style={movieListStyle}>
@@ -104,8 +122,6 @@ export class Sidebar extends Component {
       </div >
     )
   }
-
-
 }
 
 /** @type {Shor} */
