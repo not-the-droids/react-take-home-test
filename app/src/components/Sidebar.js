@@ -6,10 +6,7 @@ import axios from 'axios'
 
 
 export class Sidebar extends Component {
-  constructor() {
-    super();
-    this.searchTimeout = null
-  }
+  searchTimeout = null
 
   state = {
     searchQuery: '',
@@ -21,6 +18,7 @@ export class Sidebar extends Component {
     console.log('onSearchChange')
     if (this.searchTimeout !== null) {
       clearTimeout(this.searchTimeout);
+      this.searchTimeout = null
     }
 
     const searchTerm = e.target.value

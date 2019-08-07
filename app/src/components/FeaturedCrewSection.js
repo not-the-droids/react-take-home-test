@@ -1,27 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class FeaturedCrewSection extends Component {
-  renderCastMember = (name, role) => (
-    <li style={listItemStyle}>
-      <div>
-        <p style={crewNameStyle}>{name}</p>
-        <span style={crewRoleStyle}>{role}</span>
-      </div>
-    </li>
-  )
+const renderCastMember = (name, role) => (
+  <li style={listItemStyle}>
+    <div>
+      <p style={crewNameStyle}>{name}</p>
+      <span style={crewRoleStyle}>{role}</span>
+    </div>
+  </li>
+)
 
-  render() {
-    return (
-      <div>
-        <h3 style={subHeadingStyle}>Featured Crew</h3>
-        <ul style={castListStyle}>
-          {this.renderCastMember('Bob Kane', 'Character')}
-          {this.renderCastMember('Sam Hamm', 'Screen Play')}
-        </ul>
-      </div>
-    )
-  }
-}
+export default () => (
+  <div>
+    <h3 style={subHeadingStyle}>Featured Crew</h3>
+    <ul style={castListStyle}>
+      {renderCastMember('Bob Kane', 'Character')}
+      {renderCastMember('Sam Hamm', 'Screen Play')}
+    </ul>
+  </div>
+)
 
 const subHeadingStyle = {
   margin: 0,
@@ -51,5 +47,3 @@ const crewRoleStyle = {
   lineHeight: '1pt',
   margin: 0,
 }
-
-export default FeaturedCrewSection

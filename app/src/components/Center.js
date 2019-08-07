@@ -1,14 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class Center extends Component {
-  render() {
-    return (
-      <div style={centeredStyle}>
-        {this.props.children}
-      </div>
-    )
-  }
-}
+export default ({ children }) => (
+  <div style={centeredStyle}>
+    {children}
+  </div>
+)
 
 const centeredStyle = {
   display: 'flex',
@@ -16,5 +12,3 @@ const centeredStyle = {
   justifyContent: 'center',
   alignItems: 'center',
 }
-
-export default Center
