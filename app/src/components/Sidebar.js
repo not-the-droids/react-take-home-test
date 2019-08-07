@@ -52,7 +52,7 @@ export class Sidebar extends Component {
   renderMovieList(searchCandidates, onMovieClicked) {
     if (searchCandidates.length && searchCandidates.length > 0) {
       return (
-        <ul style={{ padding: 0 }}>
+        <ul style={movieListStyle}>
           {searchCandidates.map(candidate => (
             <li key={candidate.id} style={movieListItemStyle}>
               <MovieItem movie={candidate} onMovieClicked={onMovieClicked} />
@@ -91,7 +91,15 @@ export class Sidebar extends Component {
     return (
       <div style={sidebarContainerStyle}>
         <form action="" style={searchFormStyle} onSubmit={(e) => e.preventDefault()} autoComplete="off">
-          <input type="text" name="searchField" id="searchField" style={searchFieldStyle} onChange={this.onSearchChange} autoComplete="off" />
+          <input
+            type="text"
+            name="searchField"
+            id="searchField"
+            style={searchFieldStyle}
+            onChange={this.onSearchChange}
+            autoComplete="off"
+            placeholder="Search for a movie..."
+          />
         </form>
         {this.renderMovieList(searchCandidates, onMovieClicked)}
       </div >
@@ -111,7 +119,13 @@ const sidebarContainerStyle = {
   display: 'flex',
   flexDirection: 'column',
   padding: '10px',
-  height: '100%',
+  maxHeight: '90vh',
+}
+
+const movieListStyle = {
+  maxHeight: '100%',
+  overflow: 'auto',
+  padding: '5px',
 }
 
 const searchFormStyle = {
@@ -119,8 +133,11 @@ const searchFormStyle = {
 
 const searchFieldStyle = {
   width: '100%',
-  minHeight: '2em',
-  boxSizing: 'border-box'
+  minHeight: '2.5em',
+  boxSizing: 'border-box',
+  borderRadius: '5px',
+  border: '1px solid #eee',
+  paddingLeft: '10px',
 }
 
 export default Sidebar

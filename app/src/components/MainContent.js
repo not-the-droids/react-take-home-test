@@ -1,48 +1,25 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CastMember from './CastMember'
+import Center from './Center'
 import './MainContent.css'
 
 export class MainContent extends Component {
-  /**
-   * Choose n random elements from the given array, and
-   * return them as a new array.
-   * 
-   * @param {[object]} arr The array from which to choose the elements
-   * @param {number} n The number of random elements to choose
-   * @returns {[object]} The new array of n randomly chosen elements
-   */
-  chooseRandom = (arr, n) => {
-    if (n >= arr.length) {
-      n = arr.length - 1
-    } else if (n < 0) {
-      n = 0
-    }
-
-    /**
-     * Use Fisher-Yates shuffle (Knuth variation) to
-     * choose n random elements in linear time.
-     * https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-     */
-    const placeholder = [...arr]
-    const result = []
-    let max = arr.length - 1
-
-    while (n > 0) {
-      const choiceIndex = Math.floor(Math.random() * max)
-      const temp = placeholder[max]
-      placeholder[max] = placeholder[choiceIndex]
-      placeholder[choiceIndex] = temp
-      result.push(placeholder[max])
-      n--
-      max--
-    }
-
-    return result
-  }
+  renderEmpty = () => (
+    <div className="fullHeight">
+      <Center>
+        <p>Search for a movie!</p>
+      </Center>
+    </div>
+  )
 
   render() {
     const { movieDetails } = this.props
+
+    if (movieDetails === undefined || movieDetails === null) {
+      return this.renderEmpty()
+    }
+
     const cast = movieDetails.cast || []
     const topBilledCast = cast.slice(0, 3)
 
@@ -91,6 +68,7 @@ export class MainContent extends Component {
 const posterStyle = {
   gridArea: 'poster',
   width: '100%',
+  borderRadius: '2%',
 }
 
 const titleStyle = {

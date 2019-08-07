@@ -1,7 +1,18 @@
+.MovieItem-movieItemContainer {
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.603);
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
 .MovieItem-movieItemContainer:hover {
-  background-color: #eee;
+  background-color: #ddd;
 }
 
 .MovieItem-movieItemContainer:active {
   background-color: #ccc;
 }
+
+/* .fjdskalsdaf {
+  color: rgb(140, 0, 255);
+} */

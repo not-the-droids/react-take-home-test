@@ -25,7 +25,8 @@ const movieItemContainerStyle = {
 
 /** @type {} */
 const posterStyle = {
-  height: '100px',
+  height: '80px',
+  objectFit: 'cover',
 }
 
 const movieTitleStyle = {
