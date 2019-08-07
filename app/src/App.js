@@ -31,7 +31,7 @@ class App extends Component {
   render() {
     return (
       <div className="App" style={appContainerStyle} >
-        <main style={mainContainerStyle} className='mainContainer'>
+        <main style={mainContainerStyle}>
           <MainContent
             movieDetails={this.state.movieDetails}
             castIsLoading={this.state.castIsLoading}

@@ -4,6 +4,7 @@ import CastMember from './CastMember'
 import Center from './Center'
 import LoadingIndicator from './LoadingIndicator'
 import ClapperboardIcon from './ClapperboardIcon'
+import FeaturedCrewSection from './FeaturedCrewSection'
 import './MainContent.css'
 
 export class MainContent extends Component {
@@ -56,33 +57,21 @@ export class MainContent extends Component {
       <div className="mainContentContainer">
         <img src={movieDetails.poster_path} alt="Movie Poster" style={posterStyle} />
         <div style={overviewStyle.container}>
-          <h2 style={titleStyle}>{movieDetails.title}</h2>
+          <h2 style={subHeadingStyle}>{movieDetails.title}</h2>
           <div className='summaryContainer'>
-            <h3>Overview</h3>
-            <p>{movieDetails.overview}</p>
+            <h3 style={{ ...subHeadingStyle, lineHeight: '10pt' }}>Overview</h3>
+            <p style={{ marginBottom: 0 }}>{movieDetails.overview}</p>
           </div>
-          <div>
-            <h3>Featured Crew</h3>
-            <ul className='castList'>
-              <li>
-                <div>
-                  <p>Bob Kane</p>
-                  <span>Character</span>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <p>Sam Hamm</p>
-                  <span>Screenplay</span>
-                </div>
-              </li>
-            </ul>
-          </div>
+          <FeaturedCrewSection />
         </div>
         {this.renderCast(castIsLoading, topBilledCast)}
       </div>
     )
   }
+}
+
+const subHeadingStyle = {
+  margin: 0,
 }
 
 const posterStyle = {
@@ -91,10 +80,6 @@ const posterStyle = {
   borderRadius: '2%',
   // border: '1px solid #ccc'
   boxShadow: '0 0 5px #ccc'
-}
-
-const titleStyle = {
-  // fontFamily: "Coda, sans-serif"
 }
 
 const overviewStyle = {

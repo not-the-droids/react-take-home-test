@@ -60,6 +60,7 @@ export class Sidebar extends Component {
   }
 
   renderMovieList(searchCandidates, onMovieClicked) {
+    // Render loading indicator if necessary
     if (this.state.loading) {
       return (
         <div style={{ height: '100%' }}>
@@ -70,6 +71,7 @@ export class Sidebar extends Component {
       )
     }
 
+    // Render list of movies
     if (searchCandidates.length && searchCandidates.length > 0) {
       return (
         <ul style={movieListStyle}>
@@ -82,7 +84,7 @@ export class Sidebar extends Component {
       )
     }
 
-    // Only display this message if the user tried to search for a movie
+    // Only display this message if there is text in the search field
     if (this.state.searchQuery.length > 0) {
       return (
         <div style={{ height: '100%' }}>
