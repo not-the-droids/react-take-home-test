@@ -19,13 +19,15 @@ class App extends Component {
 
     const res = await axios.get(castURL)
 
-    this.setState({
-      castIsLoading: false,
-      movieDetails: {
-        ...movie,
-        cast: res.data,
-      }
-    })
+    setTimeout(() => {
+      this.setState({
+        castIsLoading: false,
+        movieDetails: {
+          ...movie,
+          cast: res.data,
+        }
+      })
+    }, 3000)
   }
 
   render() {
@@ -52,7 +54,8 @@ const appContainerStyle = {
   gridTemplateColumns: '[main] auto [sidebar] 250px',
   gridTemplateRows: 'auto',
   maxWidth: '992px',
-  maxHeight: '90vh',
+  height: '90vh',
+  minHeight: '700px',
   boxShadow: '0 0 100px black'
 }
 
@@ -64,7 +67,8 @@ const mainContainerStyle = {
 
 const sidebarContainerStyle = {
   backgroundColor: 'white',
-  maxHeight: '90vh',
+  height: '90vh',
+  minHeight: '700px',
   borderTopRightRadius: constants.PAGE_BORDER_RADIUS + 'px',
   borderBottomRightRadius: constants.PAGE_BORDER_RADIUS + 'px',
 }

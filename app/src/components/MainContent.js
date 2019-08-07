@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CastMember from './CastMember'
 import Center from './Center'
+import { ImpulseSpinner } from 'react-spinners-kit'
 import './MainContent.css'
 
 export class MainContent extends Component {
@@ -13,8 +14,39 @@ export class MainContent extends Component {
     </div>
   )
 
+  renderCast = (castIsLoading, cast) => {
+    if (castIsLoading) {
+      return (
+        <div style={{ width: '100%', height: '100%' }}>
+          <Center>
+            <ImpulseSpinner
+              frontColor='#ffffff'
+              backColor='rgba(0,0,0,0)'
+              loading={true}
+            />
+          </Center>
+        </div>
+      )
+    }
+
+    if (cast && cast.length && cast.length > 0) {
+      return (
+        <div style={topBilledListContainerStyle}>
+          <h3>Top Billed Cast</h3>
+          <ul style={topBilledListStyle}>
+            {cast.map(castMember => (
+              <li key={castMember.tmdb_id} style={topBilledListItemStyle}>
+                <CastMember castMemberData={castMember}></CastMember>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  }
+
   render() {
-    const { movieDetails } = this.props
+    const { movieDetails, castIsLoading } = this.props
 
     if (movieDetails === undefined || movieDetails === null) {
       return this.renderEmpty()
@@ -50,16 +82,7 @@ export class MainContent extends Component {
             </ul>
           </div>
         </div>
-        <div style={topBilledListContainerStyle}>
-          <h3>Top Billed Cast</h3>
-          <ul style={topBilledListStyle}>
-            {topBilledCast.map(castMember => (
-              <li key={castMember.tmdb_id} style={topBilledListItemStyle}>
-                <CastMember castMemberData={castMember}></CastMember>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {this.renderCast(castIsLoading, topBilledCast)}
       </div>
     )
   }

@@ -119,7 +119,8 @@ const sidebarContainerStyle = {
   display: 'flex',
   flexDirection: 'column',
   padding: '10px',
-  maxHeight: '90vh',
+  height: '90vh',
+  minHeight: '700px',
 }
 
 const movieListStyle = {

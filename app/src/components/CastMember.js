@@ -5,24 +5,40 @@ export class CastMember extends Component {
   render() {
     const { castMemberData } = this.props
     return (
-      <div>
+      <div style={{ textAlign: 'center', width: '120px' }}>
         <Center>
-          <img src={`https://image.tmdb.org/t/p/original${castMemberData.profile_path}`} alt="" style={portraitStyle} />
+          <div style={castPortraitStyle}>
+            <img src={`https://image.tmdb.org/t/p/original${castMemberData.profile_path}`} alt="" style={portraitStyle} />
+          </div>
         </Center>
-        <p>
-          {castMemberData.name}
-        </p>
+        <p>{castMemberData.name}</p>
       </div>
     )
   }
 }
 
-const portraitStyle = {
-  width: '75px',
-  height: '75px',
+/** @type{React.CSSProperties} */
+const castPortraitStyle = {
+  width: '100px',
+  height: '100px',
+  display: 'flex',
+  flexDirection: 'column',
+  backgroundColor: 'white',
   borderRadius: '50%',
+  overflow: 'hidden',
+  color: '#555',
+  textAlign: 'center',
+  fontSize: '10pt',
+  border: '1px solid white',
+  boxShadow: '2px 2px 5px black'
+}
+
+/** @type{React.CSSProperties} */
+const portraitStyle = {
+  width: '100%',
+  height: '100%',
   objectFit: 'cover',
-  objectPosition: 'top',
+  objectPosition: '50% 30%',
 }
 
 export default CastMember
