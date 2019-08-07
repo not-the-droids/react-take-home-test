@@ -27,7 +27,7 @@ p {
 .castList>li {
   list-style: none;
   display: inline-block;
-  margin: 0 20px 0 0;
+  margin: 20px 20px 0 0;
 }
 
 .castList>li p {

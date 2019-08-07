@@ -50,26 +50,28 @@ export class MainContent extends Component {
       <div className="mainContentContainer">
         <img src={movieDetails.poster_path} alt="Movie Poster" style={posterStyle} />
         <div style={overviewStyle.container}>
-          <h2>{movieDetails.title}</h2>
+          <h2 style={titleStyle}>{movieDetails.title}</h2>
           <div className='summaryContainer'>
             <h3>Overview</h3>
             <p>{movieDetails.overview}</p>
           </div>
-          <h3>Featured Crew</h3>
-          <ul className='castList'>
-            <li>
-              <div>
-                <p>Bob Kane</p>
-                <span>Character</span>
-              </div>
-            </li>
-            <li>
-              <div>
-                <p>Sam Hamm</p>
-                <span>Screenplay</span>
-              </div>
-            </li>
-          </ul>
+          <div>
+            <h3>Featured Crew</h3>
+            <ul className='castList'>
+              <li>
+                <div>
+                  <p>Bob Kane</p>
+                  <span>Character</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <p>Sam Hamm</p>
+                  <span>Screenplay</span>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
         <div style={topBilledListContainerStyle}>
           <h3>Top Billed Cast</h3>
@@ -91,11 +93,15 @@ const posterStyle = {
   width: '100%',
 }
 
+const titleStyle = {
+  // fontFamily: "Coda, sans-serif"
+}
+
 const overviewStyle = {
   container: {
     gridArea: 'overview',
     display: 'grid',
-    gridGap: '10px',
+    gridGap: '30px',
     gridTemplateRows: 'auto auto auto',
   },
 }

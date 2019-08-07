@@ -1,3 +1,7 @@
 .MovieItem-movieItemContainer:hover {
-  background-color: white;
+  background-color: #eee;
+}
+
+.MovieItem-movieItemContainer:active {
+  background-color: #ccc;
 }

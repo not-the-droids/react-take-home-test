@@ -1,0 +1,1 @@
+exports.PAGE_BORDER_RADIUS = 10

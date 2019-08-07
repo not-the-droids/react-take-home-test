@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import MainContent from './components/MainContent'
 import Sidebar from './components/Sidebar'
 import axios from 'axios'
+import constants from './constants'
 
 class App extends Component {
   state = {
@@ -283,6 +284,8 @@ class App extends Component {
 }
 
 const appContainerStyle = {
+  paddingTop: '30px',
+  borderRadius: '20px',
   display: 'grid',
   gridTemplateColumns: '[main] auto [sidebar] 250px',
   gridTemplateRows: 'auto',
@@ -291,11 +294,16 @@ const appContainerStyle = {
 }
 
 const mainContainerStyle = {
-  backgroundColor: 'lightgrey',
+  backgroundColor: 'white',
+  borderTopLeftRadius: constants.PAGE_BORDER_RADIUS + 'px',
+  borderBottomLeftRadius: constants.PAGE_BORDER_RADIUS + 'px',
 }
 
 const sidebarContainerStyle = {
-  backgroundColor: 'grey',
+  backgroundColor: 'white',
+  borderTopRightRadius: constants.PAGE_BORDER_RADIUS + 'px',
+  borderBottomRightRadius: constants.PAGE_BORDER_RADIUS + 'px',
+  boxShadow: '-1px 0px 2px #ccc'
 }
 
 export default App;
