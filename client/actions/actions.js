@@ -1,8 +1,7 @@
 import * as types from '../constants/actionTypes';
-import thunk from 'redux-thunk';
 const axios = require('axios');
 
-
+// fetching all movies from API
 export const getMovies = () => (dispatch) => {
     axios
     .get('https://clutter-front-end-interview.herokuapp.com/movies.json')
@@ -44,11 +43,7 @@ export const searchResults = (resultsArr) => ({
     payload: resultsArr
 });
 
-// export const selection = (movieid) => ({
-//     type: types.SELECTION,
-//     payload: movieid
-// });
-
+// fetching cast members from API based on selection ID
 export const selection = (movieid) => (dispatch) => {
     axios
     .get(`https://clutter-front-end-interview.herokuapp.com/movies/${movieid}/cast_members.json`)

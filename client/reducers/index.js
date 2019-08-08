@@ -10,8 +10,6 @@
  */
 
 import { combineReducers } from 'redux';
-
-// import all reducers here
 import movieReducer from './movieReducer';
 
 

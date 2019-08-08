@@ -41,14 +41,14 @@ class SearchDisplay extends Component {
             return (
                 <div key={movie.id} className="movieUnit" onClick={event => this.props.selection(event.target.id)}>
                   <img id={movie.id} src={movie.poster_path} style={{ height: 100 }}></img>
-                  <p id={movie.id} className="unitTitle">{movie.title}</p>
+                  <h4 id={movie.id} className="unitTitle">{movie.title}</h4>
                   <p id={movie.id}>Released: {movie.release_date.slice(0, 10)}</p>
                 </div>
               )
         })
 
       return(
-        <div>
+        <div className="searchBox">
             <h3>Search Movies Here</h3>
             <h3 style={{display:'inline-block'}}>Location</h3>
             <input type='text' id='user-input' onInput={event => this.props.searchMovies(event)} placeholder='search' ></input>
