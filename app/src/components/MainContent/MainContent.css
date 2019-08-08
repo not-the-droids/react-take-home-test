@@ -1,0 +1,8 @@
+.MainContent-mainContentContainer {
+  padding: 2.5rem;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-rows: auto 100px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "poster overview overview" "cast cast cast";
+}
